@@ -21,7 +21,6 @@ GetMonitorOfActiveWindow() {
 GetWorkingAreaOfActiveWindow(byref monLeft, byref monTop, byref monWidth, byref monHeight) {
 	WinGetClass, class, A
 	if (class = "WorkerW" || RegExMatch(class, "^Shell_.*TrayWnd$") > 0) {
-		MsgBox % "bad window" . %class%
 		Exit
 	}
 	id := GetMonitorOfActiveWindow()
@@ -89,3 +88,4 @@ Return
 	GetWorkingAreaOfActiveWindow(monLeft, monTop, monWidth, monHeight)
  	WinMove, A,, monLeft + monWidth / 2, monTop + monHeight / 2, monWidth / 2, monHeight / 2
 Return
+
