@@ -29,12 +29,6 @@ GetWorkingAreaOfActiveWindow(byref monLeft, byref monTop, byref monWidth, byref 
 	monHeight := (monBottom - monTop)
 }
 
-
-^m::
-	GetWorkingAreaOfActiveWindow(monLeft, monTop, monWidth, monHeight)
-	; MsgBox % "Mon: " . monLeft . " " . monRight
-Return
-
 ^NumpadHome::
 ^Numpad7::
 	GetWorkingAreaOfActiveWindow(monLeft, monTop, monWidth, monHeight)
