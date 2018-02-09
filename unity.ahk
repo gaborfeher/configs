@@ -6,7 +6,6 @@ GetMonitorOfActiveWindow() {
 	WinGetActiveStats, winTitle, winW, winH, winX, winY
 
 	SysGet, numDisplays, MonitorCount
-	SysGet, idxPrimary, MonitorPrimary
 
 	Loop %numDisplays% {
 		SysGet, mon, MonitorWorkArea, %a_index%
@@ -14,7 +13,10 @@ GetMonitorOfActiveWindow() {
 			return %a_index%
 		}
 	}
-	; Return Primary Monitor if can't find
+
+	; If we couldn't find the active monitor above, then return the
+	; the primary monitor here.
+	SysGet, idxPrimary, MonitorPrimary
 	return idxPrimary
 }
 
