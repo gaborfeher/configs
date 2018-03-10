@@ -24,7 +24,10 @@ GetMonitorOfActiveWindow() {
 
 GetWorkingAreaOfActiveWindow(byref monLeft, byref monTop, byref monWidth, byref monHeight) {
 	WinGetClass, class, A
-	if (class = "WorkerW" || RegExMatch(class, "^Shell_.*TrayWnd$") > 0) {
+	if (class = "WorkerW"
+		|| RegExMatch(class, "^Shell_.*TrayWnd$") > 0
+		|| class == "Windows.UI.Core.CoreWindow") {
+
 		Exit
 	}
 	id := GetMonitorOfActiveWindow()
