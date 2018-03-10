@@ -1,6 +1,10 @@
 " set t_Co=256
 
+" for native Ubuntu terminals:
 colorscheme torte
+" for WSL/Ubuntu terminals:
+" colorscheme ron
+
 " highlight torte ctermbg=none
 
 syntax on
@@ -25,3 +29,7 @@ set shiftwidth=2
 " Paint characters after column 80 red: \%>80v.\+
 " Paint trailing whitespace: \s\+$'
 match ErrorMsg '\%>80v.\+\|\s\+$'
+
+" Disable beeping and screen flashing:
+set visualbell
+set t_vb=
