@@ -9,7 +9,9 @@ GetMonitorOfActiveWindow() {
 
 	Loop %numDisplays% {
 		SysGet, mon, MonitorWorkArea, %a_index%
-		if (winX >= monLeft && winX < monRight && winY >= monTop && winY < monBottom) {
+		winCenterX := winX + winW / 2
+		winCenterY := winY + winH / 2
+		if (winCenterX >= monLeft && winCenterX < monRight && winCenterY >= monTop && winCenterY < monBottom) {
 			return %a_index%
 		}
 	}
